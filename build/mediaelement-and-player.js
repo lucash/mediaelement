@@ -3931,8 +3931,6 @@ if (typeof jQuery != 'undefined') {
 		remove: function() {
 			var t = this, featureIndex, feature;
 
-			t.container.prev('.mejs-offscreen').remove();
-
 			// invoke features cleanup
 			for (featureIndex in t.options.features) {
 				feature = t.options.features[featureIndex];
@@ -3968,6 +3966,7 @@ if (typeof jQuery != 'undefined') {
 			delete mejs.players[t.id];
 
 			if (typeof t.container == 'object') {
+				t.container.prev('.mejs-offscreen').remove();
 				t.container.remove();
 			}
 			t.globalUnbind();
